@@ -1,5 +1,4 @@
-$white: #fff;
-$red: #f00;
+@import '../../variables';
 
 .root {
   margin: 25px;
@@ -10,11 +9,12 @@ $red: #f00;
   display: block;
   height: auto;
   margin: 5px auto;
-  max-width: 100px;
+  max-height: 50px;
+  max-width: 150px;
 }
 
 .button {
-  background: $red;
+  background: $blue;
   border: 0;
   border-radius: 10px;
   color: $white;

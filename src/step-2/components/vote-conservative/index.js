@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import style from './VoteConservative.scss';
-import icon from './conservative-logo.svg';
+import style from './style';
+import icon from './icon.svg';
 
 export default class VoteConservative extends Component {
   constructor(props) {

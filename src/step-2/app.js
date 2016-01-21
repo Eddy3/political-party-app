@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import VoteConservative from './components/VoteConservative';
-import VoteLiberal from './components/VoteLiberal';
+import VoteConservative from './components/vote-conservative';
+import VoteLiberal from './components/vote-liberal';
 
 class App extends Component {
   render() {
