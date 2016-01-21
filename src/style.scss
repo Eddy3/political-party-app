@@ -1,0 +1,7 @@
+$ppa-hello-world-color: #fff;
+$ppa-hello-world-background: #000;
+
+.root {
+  background: $ppa-hello-world-background;
+  color: $ppa-hello-world-color;
+}

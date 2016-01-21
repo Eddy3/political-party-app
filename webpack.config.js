@@ -66,8 +66,10 @@ const BABEL_DEV_PLUGINS = [
   ]
 ];
 const BABEL_PROD_PLUGINS = [];
-const CSS_LOADERS = ['style', 'css!postcss'];
-const SASS_LOADERS = [CSS_LOADERS[0], `${CSS_LOADERS[1]}!sass`];
+const SASS_LOADERS = [
+  'style',
+  'css?modules&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss!sass'
+];
 
 module.exports = {
   entry: ENTRY_MIDDLEWARE.concat(path.join(__dirname, 'src', 'app')),
