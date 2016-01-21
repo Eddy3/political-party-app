@@ -1,0 +1,21 @@
+$white: #fff;
+$blue: #00f;
+
+.root {
+  margin: 25px;
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  height: auto;
+  margin: 5px auto;
+  max-width: 100px;
+}
+
+.button {
+  background: $blue;
+  border: 0;
+  border-radius: 10px;
+  color: $white;
+}

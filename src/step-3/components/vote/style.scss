@@ -1,0 +1,39 @@
+$white: #fff;
+$blue: #00f;
+$red: #f00;
+$orange: #ffa500;
+$green: #008000;
+
+.root {
+  margin: 25px;
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  height: auto;
+  margin: 5px auto;
+  max-width: 100px;
+}
+
+.button {
+  border: 0;
+  border-radius: 10px;
+  color: $white;
+}
+
+.button-blue {
+  background: $blue;
+}
+
+.button-red {
+  background: $red;
+}
+
+.button-orange {
+  background: $orange;
+}
+
+.button-green {
+  background: $green;
+}
