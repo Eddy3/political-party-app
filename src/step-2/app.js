@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import VoteConservative from './components/vote-conservative';
-import VoteLiberal from './components/vote-liberal';
+import VoteForConservative from './components/vote-for-conservative';
+import VoteForLiberal from './components/vote-for-liberal';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <VoteConservative/>
-        <VoteLiberal/>
+        <VoteForConservative/>
+        <VoteForLiberal/>
       </div>
     );
   }

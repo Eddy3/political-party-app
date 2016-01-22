@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import style from './style';
 import icon from './icon.svg';
 
-export default class VoteConservative extends Component {
+export default class VoteForConservative extends Component {
   constructor(props) {
     super(props);
 
