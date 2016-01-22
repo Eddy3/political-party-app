@@ -3,7 +3,7 @@ import {Grid, Row, Col} from 'react-flexbox-grid';
 
 import VoteForParty from '../vote-for-party';
 
-export default class Vote extends Component {
+export default class VoteForParties extends Component {
   static propTypes = {
     parties: PropTypes.arrayOf(
       PropTypes.shape({

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import style from './style';
 
-export default class Vote extends Component {
+export default class VoteForParty extends Component {
   static propTypes = {
     party: PropTypes.shape({
       code: PropTypes.oneOf(['conservative', 'liberal', 'ndp', 'bloc', 'green']).isRequired,
