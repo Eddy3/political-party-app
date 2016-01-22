@@ -6,33 +6,28 @@ import blocQuebecoisIcon from './bloc-quebecois-icon.svg';
 
 export default [
   {
-    id: 1,
+    code: 'conservative',
     name: 'Conservative Party',
-    color: 'blue',
     icon: conservativeIcon
   },
   {
-    id: 2,
+    code: 'liberal',
     name: 'Liberal Party',
-    color: 'red',
     icon: liberalIcon
   },
   {
-    id: 3,
+    code: 'ndp',
     name: 'New Democratic Party',
-    color: 'orange',
     icon: newDemocraticIcon
   },
   {
-    id: 4,
+    code: 'bloc',
     name: 'Bloc Québécois',
-    color: 'blue',
     icon: blocQuebecoisIcon
   },
   {
-    id: 5,
+    code: 'green',
     name: 'Green Party',
-    color: 'green',
     icon: greenIcon
   }
 ];

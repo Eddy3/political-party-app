@@ -19,18 +19,22 @@
   color: $white;
 }
 
-.button-blue {
+.button--conservative {
   background: $blue;
 }
 
-.button-red {
+.button--liberal {
   background: $red;
 }
 
-.button-orange {
+.button--ndp {
   background: $orange;
 }
 
-.button-green {
+.button--bloc {
+  background: $darkblue;
+}
+
+.button--green {
   background: $green;
 }

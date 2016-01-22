@@ -5,9 +5,11 @@ import style from './style';
 
 export default class Vote extends Component {
   static propTypes = {
-    color: PropTypes.oneOf(['blue', 'red', 'orange', 'green']).isRequired,
-    icon: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    party: PropTypes.shape({
+      code: PropTypes.oneOf(['conservative', 'liberal', 'ndp', 'bloc', 'green']).isRequired,
+      icon: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
   };
 
   constructor(props) {
@@ -26,7 +28,7 @@ export default class Vote extends Component {
   };
 
   render() {
-    const {color, icon, name} = this.props;
+    const {party: {code, icon, name}} = this.props;
     const {votes} = this.state;
 
     return (
@@ -34,7 +36,7 @@ export default class Vote extends Component {
         <h4>{name}</h4>
         <img className={style.icon} src={icon}/>
         <button
-          className={classNames(style.button, style[`button-${color}`])}
+          className={classNames(style.button, style[`button--${code}`])}
           onClick={this.handleVote}
         >
           Vote - {votes}

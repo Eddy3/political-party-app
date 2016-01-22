@@ -12,13 +12,8 @@ class App extends Component {
         <Row middle='xs'>
           {
             parties.map((party) =>
-              <Col md={4} sm={6} xs={12}>
-                <VoteForParty
-                  color={party.color}
-                  icon={party.icon}
-                  key={party.id}
-                  name={party.name}
-                />
+              <Col key={party.code} md={4} sm={6} xs={12}>
+                <VoteForParty party={party}/>
               </Col>
             )
           }
