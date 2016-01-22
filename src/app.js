@@ -1,25 +1,12 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Grid, Row, Col} from 'react-flexbox-grid';
 
 import parties from './parties';
-import VoteForParty from './components/vote-for-party';
+import VoteForParties from './components/vote-for-parties';
 
 class App extends Component {
   render() {
-    return (
-      <Grid>
-        <Row middle='xs'>
-          {
-            parties.map((party) =>
-              <Col key={party.code} md={4} sm={6} xs={12}>
-                <VoteForParty party={party}/>
-              </Col>
-            )
-          }
-        </Row>
-      </Grid>
-    );
+    return <VoteForParties parties={parties}/>;
   }
 }
 
