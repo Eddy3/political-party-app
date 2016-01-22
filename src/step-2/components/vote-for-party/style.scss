@@ -1,0 +1,40 @@
+@import '../../variables';
+
+.root {
+  margin: 25px;
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  height: auto;
+  margin: 5px auto;
+  max-height: 50px;
+  max-width: 150px;
+}
+
+.button {
+  border: 0;
+  border-radius: 10px;
+  color: $white;
+}
+
+.button--conservative {
+  background: $blue;
+}
+
+.button--liberal {
+  background: $red;
+}
+
+.button--ndp {
+  background: $orange;
+}
+
+.button--bloc {
+  background: $darkblue;
+}
+
+.button--green {
+  background: $green;
+}
