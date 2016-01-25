@@ -9,35 +9,11 @@ import parties from './parties';
 import VoteForParty from './components/vote-for-party';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    const votes = {};
-
-    parties.forEach((party) => votes[party.code] = 0);
-
-    this.state = {
-      votes
-    };
-  }
-
-  handleVote = (partyCode) => {
-    const {votes: currentVotes} = this.state;
-    const votes = {
-      ...currentVotes,
-      [partyCode]: currentVotes[partyCode] + 1
-    };
-
-    this.setState({votes});
-  };
-
   render() {
-    const {votes} = this.state;
-    const totalVotes = Object.values(votes).reduce((prev, next) => prev + next);
+    const totalVotes = 12312;
     const data = parties.map((party) => ({
       x: party.name,
-      y: votes[party.code],
-      fill: party.color
+      y: 1
     }));
 
     return (
@@ -46,7 +22,7 @@ class App extends Component {
           {
             parties.map((party) =>
               <Col key={party.code} md={4} sm={6} xs={12}>
-                <VoteForParty onVote={this.handleVote} party={party} votes={votes[party.code]}/>
+                <VoteForParty party={party}/>
               </Col>
             )
           }
@@ -56,7 +32,7 @@ class App extends Component {
             <h3>Total Votes: {totalVotes}</h3>
           </Col>
           <Col md={6}>
-            <VictoryChart domainPadding={{x: 20}} width={500}>
+            <VictoryChart domainPadding={{x: 20}} width='500'>
               <VictoryAxis dependentAxis domain={[0, 5]} label='Votes'/>
               <VictoryBar
                 animate={{velocity: 0.01}}

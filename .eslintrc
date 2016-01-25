@@ -47,7 +47,7 @@
     "use-isnan": 2,
     "valid-jsdoc": 2,
     "valid-typeof": 2,
-    "no-unexpected-multiline":2,
+    "no-unexpected-multiline": 2,
 
     "accessor-pairs": 2,
     "block-scoped-var": 2,
@@ -230,6 +230,7 @@
     "react/jsx-boolean-value": 1,
     "react/jsx-closing-bracket-location": 1,
     "react/jsx-curly-spacing": 1,
+    "react/jsx-equals-spacing": 1,
     "react/jsx-handler-names": 1,
     "react/jsx-indent-props": [1, 2],
     "react/jsx-indent": [1, 2],

@@ -8,26 +8,31 @@ export default [
   {
     code: 'conservative',
     name: 'Conservative Party',
-    icon: conservativeIcon
+    icon: conservativeIcon,
+    color: 'blue'
   },
   {
     code: 'liberal',
     name: 'Liberal Party',
-    icon: liberalIcon
+    icon: liberalIcon,
+    color: 'red'
   },
   {
     code: 'ndp',
     name: 'New Democratic Party',
-    icon: newDemocraticIcon
+    icon: newDemocraticIcon,
+    color: 'orange'
   },
   {
     code: 'bloc',
     name: 'Bloc Québécois',
-    icon: blocQuebecoisIcon
+    icon: blocQuebecoisIcon,
+    color: 'darkblue'
   },
   {
     code: 'green',
     name: 'Green Party',
-    icon: greenIcon
+    icon: greenIcon,
+    color: 'green'
   }
 ];

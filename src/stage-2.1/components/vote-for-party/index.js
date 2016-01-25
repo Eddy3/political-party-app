@@ -5,23 +5,31 @@ import style from './style';
 
 export default class VoteForParty extends Component {
   static propTypes = {
-    onVote: PropTypes.func.isRequired,
     party: PropTypes.shape({
       code: PropTypes.oneOf(['conservative', 'liberal', 'ndp', 'bloc', 'green']).isRequired,
       icon: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired
-    }).isRequired,
-    votes: PropTypes.number.isRequired
+    }).isRequired
   };
 
-  handleVote = () => {
-    const {party: {code}, onVote} = this.props;
+  constructor(props) {
+    super(props);
 
-    onVote(code);
+    this.state = {
+      votes: 0
+    };
+  }
+
+  handleVote = () => {
+    const {votes: previousVotes} = this.state;
+    const votes = previousVotes + 1;
+
+    this.setState({votes});
   };
 
   render() {
-    const {party: {code, icon, name}, votes} = this.props;
+    const {party: {code, icon, name}} = this.props;
+    const {votes} = this.state;
 
     return (
       <div className={style.root}>
