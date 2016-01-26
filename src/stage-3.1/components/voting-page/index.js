@@ -1,14 +1,11 @@
-/* eslint-disable id-length */
-
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import {Link} from 'react-router';
 import {Grid, Row, Col} from 'react-flexbox-grid';
-import {VictoryChart, VictoryAxis, VictoryBar} from 'victory';
 
-import parties from './parties';
-import VoteForParty from './components/vote-for-party';
+import parties from '../../parties';
+import VoteForParty from '../vote-for-party';
 
-class App extends Component {
+export default class VotingPage extends Component {
   constructor(props) {
     super(props);
 
@@ -32,11 +29,6 @@ class App extends Component {
   render() {
     const {votes} = this.state;
     const totalVotes = Object.values(votes).reduce((prev, next) => prev + next);
-    const data = parties.map((party) => ({
-      x: party.name,
-      y: votes[party.code],
-      fill: party.color
-    }));
 
     return (
       <Grid>
@@ -44,29 +36,22 @@ class App extends Component {
           {
             parties.map((party) =>
               <Col key={party.code} md={4} sm={6} xs={12}>
-                <VoteForParty onVote={this.handleVote} party={party} votes={votes[party.code]}/>
+                <VoteForParty onVote={this.handleVote} party={party}/>
               </Col>
             )
           }
         </Row>
         <Row middle='xs'>
-          <Col md={6}>
+          <Col sm={6} smOffset={6}>
             <h3>Total Votes: {totalVotes}</h3>
           </Col>
-          <Col md={6}>
-            <VictoryChart domainPadding={{x: 20}} width={500}>
-              <VictoryAxis dependentAxis domain={[0, 5]} label='Votes'/>
-              <VictoryBar
-                animate={{velocity: 0.01}}
-                data={data}
-                style={{data: {width: 15}}}
-              />
-            </VictoryChart>
+        </Row>
+        <Row>
+          <Col sm={6} smOffset={6}>
+            <Link to='/summary'>View Summary</Link>
           </Col>
         </Row>
       </Grid>
     );
   }
 }
-
-ReactDOM.render(<App/>, document.getElementById('content'));
