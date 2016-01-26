@@ -6,7 +6,7 @@ import {VictoryChart, VictoryAxis, VictoryBar} from 'victory';
 
 import parties from '../../parties';
 
-export default class VotingPage extends Component {
+export default class VotingSummary extends Component {
   constructor(props) {
     super(props);
 
