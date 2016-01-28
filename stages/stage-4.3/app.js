@@ -41,16 +41,16 @@ const DevTools = createDevTools(
 
 const history = createHistory();
 const reactRouterReduxMiddleware = syncHistory(history);
-const finalCreateStore = compose(
-  applyMiddleware(reactRouterReduxMiddleware),
-  DevTools.instrument(),
-  persistState(getDebugSessionKey())
-)(createStore);
-const store = finalCreateStore(
+const store = createStore(
   combineReducers({
     routing: routeReducer,
     votes: votesReducer
-  })
+  }),
+  compose(
+    applyMiddleware(reactRouterReduxMiddleware),
+    DevTools.instrument(),
+    persistState(getDebugSessionKey())
+  )
 );
 
 if (module.hot) {
