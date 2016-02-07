@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import style from './style';
 import icon from './icon.svg';
@@ -8,19 +8,19 @@ export default class VoteForConservative extends Component {
     super(props);
 
     this.state = {
-      votes: 0
+      votes: 0,
     };
   }
 
   handleVote = () => {
-    const {votes: previousVotes} = this.state;
+    const { votes: previousVotes } = this.state;
     const votes = previousVotes + 1;
 
-    this.setState({votes});
+    this.setState({ votes });
   };
 
   render() {
-    const {votes} = this.state;
+    const { votes } = this.state;
 
     return (
       <div className={style.root}>

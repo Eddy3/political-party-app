@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 import style from './style';
@@ -9,19 +9,19 @@ export default class VoteForParty extends Component {
     party: PropTypes.shape({
       code: PropTypes.oneOf(['conservative', 'liberal', 'ndp', 'bloc', 'green']).isRequired,
       icon: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
     }).isRequired,
-    votes: PropTypes.number.isRequired
+    votes: PropTypes.number.isRequired,
   };
 
   handleVote = () => {
-    const {party: {code}, onVote} = this.props;
+    const { party: { code }, onVote } = this.props;
 
     onVote(code);
   };
 
   render() {
-    const {party: {code, icon, name}, votes} = this.props;
+    const { party: { code, icon, name }, votes } = this.props;
 
     return (
       <div className={style.root}>

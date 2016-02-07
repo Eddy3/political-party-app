@@ -1,9 +1,7 @@
-/* eslint-disable id-length */
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Grid, Row, Col} from 'react-flexbox-grid';
-import {VictoryChart, VictoryAxis, VictoryBar} from 'victory';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { VictoryChart, VictoryAxis, VictoryBar } from 'victory';
 
 import parties from './parties';
 import VoteForParty from './components/vote-for-party';
@@ -16,31 +14,31 @@ class App extends Component {
 
     parties.forEach((party) => votes[party.code] = 0);
 
-    this.state = {votes};
+    this.state = { votes };
   }
 
   handleVote = (partyCode) => {
-    const {votes: currentVotes} = this.state;
+    const { votes: currentVotes } = this.state;
     const votes = {
       ...currentVotes,
-      [partyCode]: currentVotes[partyCode] + 1
+      [partyCode]: currentVotes[partyCode] + 1,
     };
 
-    this.setState({votes});
+    this.setState({ votes });
   };
 
   render() {
-    const {votes} = this.state;
+    const { votes } = this.state;
     const totalVotes = Object.values(votes).reduce((prev, next) => prev + next);
     const data = parties.map((party) => ({
       x: party.name,
       y: votes[party.code],
-      fill: party.color
+      fill: party.color,
     }));
 
     return (
       <Grid>
-        <Row middle='xs'>
+        <Row middle="xs">
           {
             parties.map((party) =>
               <Col key={party.code} md={4} sm={6} xs={12}>
@@ -49,17 +47,17 @@ class App extends Component {
             )
           }
         </Row>
-        <Row middle='xs'>
+        <Row middle="xs">
           <Col md={6}>
             <h3>Total Votes: {totalVotes}</h3>
           </Col>
           <Col md={6}>
-            <VictoryChart domainPadding={{x: 20}} width={500}>
-              <VictoryAxis dependentAxis domain={[0, 5]} label='Votes'/>
+            <VictoryChart domainPadding={{ x: 20 }} width={500}>
+              <VictoryAxis dependentAxis domain={[0, 5]} label="Votes"/>
               <VictoryBar
-                animate={{velocity: 0.01}}
+                animate={{ velocity: 0.01 }}
                 data={data}
-                style={{data: {width: 15}}}
+                style={{ data: { width: 15 } }}
               />
             </VictoryChart>
           </Col>

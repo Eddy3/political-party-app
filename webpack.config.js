@@ -10,16 +10,14 @@ const parseArgs = require('minimist');
 const argv = parseArgs(process.argv.slice(2), {
   default: {
     dev: false,
-    verbose: false
-  }
+    verbose: false,
+  },
 });
 
 const DEV = argv.dev;
 const VERBOSE = argv.verbose;
 const GLOBALS = {
   'process.env.NODE_ENV': DEV ? JSON.stringify('development') : JSON.stringify('production'),
-  __DEVELOPMENT__: DEV,
-  __DEVTOOLS__: DEV
 };
 const PLUGINS = [
   new webpack.DefinePlugin(GLOBALS),
@@ -27,12 +25,12 @@ const PLUGINS = [
     title: 'Vote for your favorite political party!',
     template: 'handlebars!' + path.join(__dirname, 'src', 'template', 'index.hbs'),
     favicon: path.join(__dirname, 'src', 'template', 'favicon.ico'),
-    inject: false
-  })
+    inject: false,
+  }),
 ];
 const DEV_PLUGINS = [
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
+  new webpack.NoErrorsPlugin(),
 ];
 const PROD_PLUGINS = [
   new ExtractTextPlugin('main-[contenthash].css'),
@@ -40,10 +38,10 @@ const PROD_PLUGINS = [
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
-      warnings: VERBOSE
-    }
+      warnings: VERBOSE,
+    },
   }),
-  new webpack.optimize.AggressiveMergingPlugin()
+  new webpack.optimize.AggressiveMergingPlugin(),
 ];
 const ENTRY_MIDDLEWARE = DEV ? ['webpack-hot-middleware/client'] : [];
 const BABEL_PLUGINS = [];
@@ -55,20 +53,20 @@ const BABEL_DEV_PLUGINS = [
         {
           transform: 'react-transform-hmr',
           imports: ['react'],
-          locals: ['module']
+          locals: ['module'],
         },
         {
           transform: 'react-transform-catch-errors',
-          imports: ['react', 'redbox-react']
-        }
-      ]
-    }
-  ]
+          imports: ['react', 'redbox-react'],
+        },
+      ],
+    },
+  ],
 ];
 const BABEL_PROD_PLUGINS = [];
 const SASS_LOADERS = [
   'style',
-  'css?modules&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss!sass'
+  'css?modules!postcss!sass',
 ];
 
 module.exports = {
@@ -77,11 +75,11 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: '[name]-[hash].js',
-    publicPath: '/'
+    publicPath: '/',
   },
 
   resolve: {
-    extensions: ['', '.js', '.scss']
+    extensions: ['', '.js', '.scss'],
   },
 
   plugins: PLUGINS.concat(DEV ? DEV_PLUGINS : PROD_PLUGINS),
@@ -99,16 +97,16 @@ module.exports = {
     chunks: VERBOSE,
     chunkModules: VERBOSE,
     cached: VERBOSE,
-    cachedAssets: VERBOSE
+    cachedAssets: VERBOSE,
   },
 
   babel: {
     plugins: BABEL_PLUGINS.concat(DEV ? BABEL_DEV_PLUGINS : BABEL_PROD_PLUGINS),
-    cacheDirectory: argv.dev
+    cacheDirectory: argv.dev,
   },
 
   sassLoader: {
-    precision: 8
+    precision: 8,
   },
 
   postcss: [
@@ -121,39 +119,39 @@ module.exports = {
         'Edge >= 1',
         'iOS >= 6',
         'Opera >= 12',
-        'Safari >= 6'
-      ]
-    })
+        'Safari >= 6',
+      ],
+    }),
   ],
 
   imagemin: {
     minimize: !DEV,
     gifsicle: {
-      interlaced: true
+      interlaced: true,
     },
     jpegtran: {
-      progressive: true
+      progressive: true,
     },
     optipng: {
-      optimizationLevel: 7
+      optimizationLevel: 7,
     },
     svgo: {
       plugins: [
         {
-          removeTitle: true
+          removeTitle: true,
         },
         {
-          convertPathData: false
+          convertPathData: false,
         },
         {
-          removeViewBox: false
-        }
-      ]
-    }
+          removeViewBox: false,
+        },
+      ],
+    },
   },
 
   url: {
-    dataUrlLimit: 10000
+    dataUrlLimit: 10000,
   },
 
   module: {
@@ -161,20 +159,20 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel',
       },
       {
         test: /\.scss$/,
-        loader: DEV ? SASS_LOADERS.join('!') : ExtractTextPlugin.extract.apply(null, SASS_LOADERS)
+        loader: DEV ? SASS_LOADERS.join('!') : ExtractTextPlugin.extract.apply(null, SASS_LOADERS),
       },
       {
         test: /\.(gif|jpe?g|png|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url!img'
+        loader: 'url!img',
       },
       {
         test: /\.(woff2?|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url'
-      }
-    ]
-  }
+        loader: 'url',
+      },
+    ],
+  },
 };

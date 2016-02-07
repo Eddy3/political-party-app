@@ -15,11 +15,11 @@ app
   .use(history())
   .use(webpackDevMiddleware(compiler, {
     noInfo: true,
-    stats: {colors: true},
-    publicPath: config.output.publicPath
+    stats: { colors: true },
+    publicPath: config.output.publicPath,
   }))
   .use(webpackHotMiddleware(compiler))
-  .listen(3000, 'localhost', function (err) {
+  .listen(3000, 'localhost', function callback(err) {
     if (err) {
       console.error(err);
       return;

@@ -1,14 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
-import {Provider} from 'react-redux';
-import {Router, Route} from 'react-router';
-import {createHistory} from 'history';
-import {syncHistory, routeReducer} from 'react-router-redux';
-import {createDevTools, persistState} from 'redux-devtools';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import { Router, Route } from 'react-router';
+import { createHistory } from 'history';
+import { syncHistory, routeReducer } from 'react-router-redux';
+import { createDevTools, persistState } from 'redux-devtools';
 import LogMonitor from 'redux-devtools-log-monitor';
 import DockMonitor from 'redux-devtools-dock-monitor';
+/*
 import SliderMonitor from 'redux-slider-monitor';
+*/
 
 import votesReducer from './reducers';
 import VotingPage from './components/voting-page';
@@ -21,8 +23,8 @@ function getDebugSessionKey() {
 }
 
 const DevTools = createDevTools(
-  <DockMonitor changePositionKey='ctrl-q' toggleVisibilityKey='ctrl-h'>
-    <LogMonitor theme='tomorrow'/>
+  <DockMonitor changePositionKey="ctrl-q" toggleVisibilityKey="ctrl-h">
+    <LogMonitor theme="tomorrow"/>
   </DockMonitor>
 );
 
@@ -44,7 +46,7 @@ const reactRouterReduxMiddleware = syncHistory(history);
 const store = createStore(
   combineReducers({
     routing: routeReducer,
-    votes: votesReducer
+    votes: votesReducer,
   }),
   compose(
     applyMiddleware(reactRouterReduxMiddleware),
@@ -59,7 +61,7 @@ if (module.hot) {
 
     store.replaceReducer(combineReducers({
       routing: routeReducer,
-      votes: newVotesReducer
+      votes: newVotesReducer,
     }));
   });
 }
@@ -70,8 +72,8 @@ class App extends Component {
       <Provider store={store}>
         <span>
           <Router history={history}>
-            <Route component={VotingPage} path='/vote'/>
-            <Route component={VotingSummary} path='/summary'/>
+            <Route component={VotingPage} path="/vote"/>
+            <Route component={VotingSummary} path="/summary"/>
           </Router>
           <DevTools/>
         </span>
